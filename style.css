@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* This ensures the popup has a base size if Tailwind fails */
+body {
+  margin: 0;
+  background-color: #020617;
+}
