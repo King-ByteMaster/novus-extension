@@ -1,33 +1,26 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+# 🛡️ Novus: Secure Clipboard Detox
 
-## Getting Started
+**Novus** is a privacy-focused Chrome extension built with React and Plasmo. It acts as a "surgical scrub" for your clipboard, automatically detecting and redacting sensitive AWS credentials before they can be pasted into LLMs like ChatGPT.
 
-First, run the development server:
+## 🚀 Features
+* **Context-Aware Redaction**: Uses regex to identify AWS Access Keys and Secret Keys, but only triggers when security keywords are nearby to prevent false positives.
+* **Real-Time Protection**: Intercepts the paste event to scrub data locally on your machine—sensitive keys never reach the cloud.
+* **Activity History**: A sleek popup UI that tracks the last 5 "detox" events, showing you exactly what was blocked and where.
+* **Toggle Control**: Easily enable or disable protection with a persistent global switch.
 
-```bash
-pnpm dev
-# or
-npm run dev
-```
+## 🛠️ Tech Stack
+* **Framework**: [Plasmo](https://www.plasmo.com/) (Browser Extension Framework)
+* **Library**: React + TypeScript
+* **Styling**: Tailwind CSS
+* **Storage**: Plasmo Storage API for cross-context state management
 
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
+## 📦 Installation (Development Mode)
+1. Clone this repository.
+2. Run `pnpm install` to install dependencies.
+3. Run `pnpm dev` to start the development server.
+4. Open Chrome and go to `chrome://extensions`.
+5. Enable **Developer Mode** and click **Load Unpacked**.
+6. Select the `build/chrome-mv3-dev` folder.
 
-You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
-
-For further guidance, [visit our Documentation](https://docs.plasmo.com/)
-
-## Making production build
-
-Run the following:
-
-```bash
-pnpm build
-# or
-npm run build
-```
-
-This should create a production bundle for your extension, ready to be zipped and published to the stores.
-
-## Submit to the webstores
-
-The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/framework/workflows/submit) and you should be on your way for automated submission!
+## 🔒 Privacy
+Novus does not collect, store, or transmit any user data. All redaction happens locally within the browser context.
